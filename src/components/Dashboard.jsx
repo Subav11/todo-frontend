@@ -34,7 +34,7 @@ export default function Dashboard() {
         const url = `${API_URL}/api/todo/${editId}`;
         await axios.patch(
           url,
-          { task: todoData.task },
+          todoData,
           {
             headers: {
               Authorization: `Bearer ${user.token}`,
