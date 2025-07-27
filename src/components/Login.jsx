@@ -67,6 +67,7 @@ export default function Login() {
           </button>
         </p>
       </form>
+      <hr />
       <Link to="/register">Create an Account</Link>
       {error && <p style={{ color: "red" }}>{error}</p>}
       {message && <p style={{ color: "green" }}>{message}</p>}

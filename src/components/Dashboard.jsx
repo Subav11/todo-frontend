@@ -15,9 +15,10 @@ export default function Dashboard() {
   const [limit, setLimit] = useState(5);
   const [totalPages, setTotalPages] = useState(1);
   const [status, setStatus] = useState("");
+  const [editId, setEditId] = useState();
   const Navigate = useNavigate();
   const API_URL = import.meta.env.VITE_API_URL;
-  const handleAdd = async (e) => {
+  const handleAddOrUpdate = async (e) => {
     e.preventDefault();
     const form = formRef.current;
     if (!form.checkValidity()) {
@@ -29,18 +30,33 @@ export default function Dashboard() {
     setMessage(null);
 
     try {
-      const url = `${API_URL}/api/todo/`;
-      await axios.post(url, todoData, {
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-      });
-      setMessage("Todo added successfully");
+      if (editId) {
+        const url = `${API_URL}/api/todo/${editId}`;
+        await axios.patch(
+          url,
+          { task: todoData.task },
+          {
+            headers: {
+              Authorization: `Bearer ${user.token}`,
+            },
+          }
+        );
+        setMessage("Todo updated successfully");
+      } else {
+        const url = `${API_URL}/api/todo/`;
+        await axios.post(url, todoData, {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        });
+        setMessage("Todo added successfully");
+      }
       setTodoData({ task: "" });
+      setEditId(null);
       fetchTodo();
     } catch (err) {
       console.error(err);
-      setError(err.response?.data?.message || "Adding task to todo failed");
+      setError(err.response?.data?.message || "Operation failed");
     }
     setLoading(false);
   };
@@ -119,7 +135,7 @@ export default function Dashboard() {
       <h2>Add Todo</h2>
       {error && <p>{error}</p>}
       {message && <p>{message}</p>}
-      <form ref={formRef} onSubmit={handleAdd}>
+      <form ref={formRef} onSubmit={handleAddOrUpdate}>
         <p>
           <input
             type="text"
@@ -130,9 +146,27 @@ export default function Dashboard() {
           />
         </p>
         <p>
-          <button type="submit" disabled={loading}>
-            {loading ? "Adding..." : "Add"}
-          </button>
+          {editId ? (
+            <>
+              <button type="submit" disabled={loading}>
+                {loading ? "Updating..." : "Update"}
+              </button>
+              <button
+                type="button"
+                disabled={loading}
+                onClick={() => {
+                  setEditId(null);
+                  setTodoData({ task: "" });
+                }}
+              >
+                Cancel
+              </button>
+            </>
+          ) : (
+            <button type="submit" disabled={loading}>
+              {loading ? "Adding..." : "Add"}
+            </button>
+          )}
         </p>
       </form>
       <div>
@@ -158,13 +192,22 @@ export default function Dashboard() {
                   >
                     {loading ? "Marking Done..." : "Mark Done"}
                   </button>
-                )} {""} 
-                 <button
+                )}{" "}
+              { value.status!=="completed" && <button
+                  disabled={loading}
+                  onClick={() => {
+                    setEditId(value._id);
+                    setTodoData({ task: value.task });
+                  }}
+                >
+                  Edit
+                </button>}{" "}
+                <button
                   disabled={loading}
                   onClick={() => handleDelete(value._id)}
                 >
                   {loading ? "Deleting..." : "Delete"}
-                </button>
+                </button>{" "}
               </p>
             </li>
           ))}
