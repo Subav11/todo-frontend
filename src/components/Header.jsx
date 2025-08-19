@@ -1,23 +1,21 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AppContext } from "../App";
+import "../styles/header.css"
 
 export default function Header() {
   const { user } = useContext(AppContext);
   return (
-    <div>
-      <h1>TodoMate</h1>
-      <div>
+      <nav className="nav">
+        <h1 className="nav-title">TodoMate</h1>
         {user?.token ? (
-          <>
-            {" "}
-            <Link to="/dashboard">DashBoard</Link>{" "}
-            <Link to="/logout">Logout</Link>{" "}
-          </>
+          <div className="nav-items">
+            <Link to="/dashboard">DashBoard</Link>
+            <Link to="/logout">Logout</Link>
+          </div>
         ) : (
           <Link to="/"></Link>
         )}
-      </div>
-    </div>
+      </nav>
   );
 }

@@ -11,7 +11,7 @@ export const AppContext = createContext();
 function App() {
   const [user, setUser] = useState({});
   return (
-    <div>
+    <div className="App-Container">
       <AppContext.Provider value={{ user, setUser }}>
         <BrowserRouter>
           <Header />
