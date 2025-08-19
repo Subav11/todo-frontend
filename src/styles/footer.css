@@ -1,18 +1,17 @@
 .footer{
     display: flex;
     flex-direction: column;
-    align-items: center;
     background-color: #122e3a;
-    position: absolute;
-    width: 100%;
-    bottom: 0;
     gap: 7px;
+    align-items: center;
+    position: relative;
+    bottom: 0;
 }
 
 .footer h2{
     color: white;
 }
 
-.footer span{
+.footer p{
     color: white;
 }

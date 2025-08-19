@@ -15,12 +15,12 @@ function App() {
       <AppContext.Provider value={{ user, setUser }}>
         <BrowserRouter>
           <Header />
-          <Routes>
-            <Route index element={<Login />} />
-            <Route path="dashboard" element={<Dashboard />} />
-            <Route path="register" element={<Register />} />
-            <Route path="logout" element={<Logout />} />
-          </Routes>
+            <Routes>
+              <Route index element={<Login />} />
+              <Route path="dashboard" element={<Dashboard />} />
+              <Route path="register" element={<Register />} />
+              <Route path="logout" element={<Logout />} />
+            </Routes>
           <Footer />
         </BrowserRouter>
       </AppContext.Provider>
