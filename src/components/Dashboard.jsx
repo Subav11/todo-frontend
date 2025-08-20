@@ -128,100 +128,107 @@ export default function Dashboard() {
     fetchTodo();
   }, [page, status]);
   return (
-    <div className="dashboard-container">
-      {error && <p>{error}</p>}
-      {message && <p>{message}</p>}
-      <form className="form-display" ref={formRef} onSubmit={handleAddOrUpdate}>
-        <input
-          className="btn-input"
-          type="text"
-          placeholder="Enter Task Todo"
-          value={todoData.task}
-          onChange={(e) => setTodoData({ ...todoData, task: e.target.value })}
-          required
-        />
+    <>
+      <div className="dashboard-container">
+        {error && <p className="error">{error}</p>}
+        {message && <p className="msg">{message}</p>}
+        <form
+          className="form-display"
+          ref={formRef}
+          onSubmit={handleAddOrUpdate}
+        >
+          <input
+            className="btn-input"
+            type="text"
+            placeholder="Enter Task Todo"
+            value={todoData.task}
+            onChange={(e) => setTodoData({ ...todoData, task: e.target.value })}
+            required
+          />
 
-        {editId ? (
-          <>
-            <button type="submit" disabled={loading}>
-              {loading ? "Updating..." : "Update"}
-            </button>
-            <button
-              type="button"
-              disabled={loading}
-              onClick={() => {
-                setEditId(null);
-                setTodoData({ task: "" });
-              }}
-            >
-              Cancel
-            </button>
-          </>
-        ) : (
-          <button className="btn-add" type="submit" disabled={loading}>
-            {loading ? "Adding..." : "+"}
-          </button>
-        )}
-      </form>
-      <h3 className="filter">Filter by Status: </h3>
-      <select
-        className="select"
-        value={status}
-        onChange={(e) => setStatus(e.target.value)}
-      >
-        <option value="">All</option>
-        <option value="pending">Pending</option>
-        <option value="completed">Completed</option>
-      </select>
-      {todo.length === 0 ? (
-        <p>No todos yet!</p>
-      ) : (
-        <div>
-          {todo.map((value) => (
-            <div className="todo-item" key={value._id}>
-              {value.status === "pending" && (
-                <button
-                  className="done"
-                  disabled={loading}
-                  onClick={() => handleUpdate(value._id, "completed")}
-                >
-                  {loading ? (
-                    "Marking Done..."
-                  ) : (
-                    <i class="fa-solid fa-check"></i>
-                  )}
-                </button>
-              )}
-
-              <span>{value.task}</span>
-              <span className="status">{value.status}</span>
-
-              {value.status !== "completed" && (
-                <button
-                  disabled={loading}
-                  onClick={() => {
-                    setEditId(value._id);
-                    setTodoData({ task: value.task });
-                  }}
-                >
-                  Edit
-                </button>
-              )}
-              <button
-                className="delete"
-                disabled={loading}
-                onClick={() => handleDelete(value._id)}
-              >
-                {loading ? "Deleting..." : <i class="fa-solid fa-xmark"></i>}
+          {editId ? (
+            <>
+              <button className="update" type="submit" disabled={loading}>
+                Update
               </button>
-            </div>
-          ))}
+              <button
+              className="cancel"
+                type="button"
+                disabled={loading}
+                onClick={() => {
+                  setEditId(null);
+                  setTodoData({ task: "" });
+                }}
+              >
+                Cancel
+              </button>
+            </>
+          ) : (
+            <button className="btn-add" type="submit" disabled={loading}>
+              +
+            </button>
+          )}
+        </form>
+        <h3>Filter by Status: </h3>
+        <select
+          className="select"
+          value={status}
+          onChange={(e) => setStatus(e.target.value)}
+        >
+          <option value="">All</option>
+          <option value="pending">Pending</option>
+          <option value="completed">Completed</option>
+        </select>
+        {todo.length === 0 ? (
+          <p>No todos yet!</p>
+        ) : (
+          <div>
+            {todo.map((value) => (
+              <div className="todo-item" key={value._id}>
+                <div className="todo-left">
+                  {value.status === "pending" && (
+                    <button
+                      className="done"
+                      disabled={loading}
+                      onClick={() => handleUpdate(value._id, "completed")}
+                    >
+                      <i class="fa-solid fa-check"></i>
+                    </button>
+                  )}
+                </div>
+
+                <div className="todo-center"><span>{value.task}</span>
+                <span className="status">{value.status}</span></div>
+
+                <div className="todo-right">
+                  {value.status !== "completed" && (
+                    <button className="edit"
+                      disabled={loading}
+                      onClick={() => {
+                        setEditId(value._id);
+                        setTodoData({ task: value.task });
+                      }}
+                    >
+                      <i class="fa-solid fa-pen"></i>
+                    </button>
+                  )}
+                  <button
+                    className="delete"
+                    disabled={loading}
+                    onClick={() => handleDelete(value._id)}
+                  >
+                    <i class="fa-solid fa-xmark"></i>
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
-      )}
       {todo.length === 0 ? (
         ""
       ) : (
-        <div>
+        <div className="pagination">
           <button disabled={page === 1} onClick={() => setPage(page - 1)}>
             Previous
           </button>
@@ -234,6 +241,6 @@ export default function Dashboard() {
           </button>
         </div>
       )}
-    </div>
+    </>
   );
 }

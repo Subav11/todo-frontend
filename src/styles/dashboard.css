@@ -1,94 +1,139 @@
 .dashboard-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  background-color: #1e556c;
-  padding: 30px 10px;
+  padding-top: 40px;
+  gap: 17px;
+  color: white;
+  background-color: #122e3ae8;
+  width: 600px;
   margin: auto;
-  border-radius: 15px;
-  width: 400px;
-  height: 500px;
-  gap: 12px;
+  height: 530px;
+  border-radius: 10px;
 }
 
 .form-display {
   display: flex;
-  gap: 10px;
+  justify-content: center;
+  align-items: center;
 }
 
 .btn-input {
-  width: 330px;
-  padding: 8px;
-  background-color: #1e556c;
-  color: white;
-  font-size: 16px;
-  border-radius: 5px;
-  border: 1px solid #122e3a;
+  width: 300px;
+  height: 35px;
+  padding: 6px;
+  margin-right: 15px;
+  font-size: 17px;
+  border-radius: 4px;
 }
 
 .btn-add {
   width: 40px;
-  font-size: 25px;
+  height: 40px;
   border-radius: 50%;
-  background-color: #88a4af;
-  border: none;
+  font-size: 28px;
   color: #122e3a;
-}
-
-.btn-add:hover {
-  background-color: #bdc4c8;
-}
-
-.filter {
-  color: white;
-}
-
-.select {
-  text-align: center;
-  width: 100px;
-  padding: 3px 0px;
-  border-radius: 4px;
-  color: white;
-  background-color: #153d51;
-  font-size: 15px;
-  font-weight: 500;
+  background-color: #5e7179;
+  border: none;
+  cursor: pointer;
 }
 
 .done {
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
-  background-color: #04de00;
-  color: #122e3a;
   border: none;
-  cursor: pointer;
   font-size: 18px;
+  background-color: #04de00;
+  color: #000000;
+  cursor: pointer;
 }
 
 .delete {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 18px;
   border: none;
-  color: #364e58;
-  background-color: #1b3642;
+  color: #587b8a;
+  background-color: #122e3ae8;
   cursor: pointer;
-  font-size: 20px;
 }
 
-.delete:hover {
-  color: rgb(203, 189, 189);
+.edit {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 18px;
+  border: none;
+  color: #587b8a;
+  background-color: #122e3ae8;
+  cursor: pointer;
 }
 
 .todo-item {
-  background-color: #1b3642;
-  margin: 10px auto;
-  border-radius: 10px;
-  color: white;
-  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 500px;
+  background-color: #32505e;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-weight: 545;
+  font-size: 18px;
+}
+
+.todo-center {
+  display: flex;
+  gap: 18px;
+}
+
+.todo-right {
+  display: flex;
+  gap: 15px;
+}
+
+.pagination {
+  margin: auto;
+}
+
+.select {
+  padding: 1.5px 0;
   font-size: 16px;
+  font-weight: 540;
+  border-radius: 4px;
+  text-align: center;
 }
 
-.todo-item button{
-    margin: 0 20px 
+.error {
+  font-size: 20px;
+  color: red;
 }
 
-.status{
-    margin-left: 20px;
+.msg {
+  font-size: 16px;
+  color: white;
+}
+
+.update {
+  height: 35px;
+  padding: 6px;
+  font-size: 15px;
+  border-radius: 4px;
+  margin-right: 8px;
+  font-weight: 550;
+  color: #122e3a;
+  background-color: #5e7179;
+}
+
+.cancel {
+  height: 35px;
+  padding: 6px;
+  font-size: 15px;
+  border-radius: 4px;
+  font-weight: 550;
+  color: #122e3a;
+  background-color: #5e7179;
 }
