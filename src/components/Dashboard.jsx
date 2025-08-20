@@ -229,11 +229,11 @@ export default function Dashboard() {
         ""
       ) : (
         <div className="pagination">
-          <button disabled={page === 1} onClick={() => setPage(page - 1)}>
+          <button className="prev" disabled={page === 1} onClick={() => setPage(page - 1)}>
             Previous
           </button>
-          {page} of {totalPages}
-          <button
+          <span className="page">{page} of {totalPages}</span>
+          <button className="next"
             disabled={page === totalPages}
             onClick={() => setPage(page + 1)}
           >

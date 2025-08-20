@@ -25,7 +25,9 @@
   padding: 6px;
   margin-right: 15px;
   font-size: 17px;
-  border-radius: 4px;
+  border-radius: 6px;
+  background-color: #122e3ae8;
+  color: white;
 }
 
 .btn-add {
@@ -39,6 +41,10 @@
   cursor: pointer;
 }
 
+.btn-add:hover {
+  background-color: #bdc4c8;
+}
+
 .done {
   width: 30px;
   height: 30px;
@@ -48,6 +54,10 @@
   background-color: #04de00;
   color: #000000;
   cursor: pointer;
+}
+
+.done:hover {
+  background-color: #04de00c5;
 }
 
 .delete {
@@ -61,6 +71,11 @@
   cursor: pointer;
 }
 
+.delete:hover {
+  background-color: #bdc4c8;
+  color: #122e3a;
+}
+
 .edit {
   width: 30px;
   height: 30px;
@@ -70,6 +85,11 @@
   color: #587b8a;
   background-color: #122e3ae8;
   cursor: pointer;
+}
+
+.edit:hover {
+  background-color: #bdc4c8;
+  color: #122e3a;
 }
 
 .todo-item {
@@ -100,11 +120,16 @@
 }
 
 .select {
-  padding: 1.5px 0;
+  padding: 2px 0;
   font-size: 16px;
   font-weight: 540;
   border-radius: 4px;
   text-align: center;
+  background-color: rgba(255, 255, 255, 0.669);
+}
+
+.select:hover{
+ background-color: rgba(255, 255, 255, 0.875);
 }
 
 .error {
@@ -136,4 +161,39 @@
   font-weight: 550;
   color: #122e3a;
   background-color: #5e7179;
+}
+
+.prev {
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #32505e;
+  color: white;
+  margin-right: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+}
+
+.prev:hover {
+  background-color: #426e82;
+}
+
+.next {
+  border: none;
+  margin-left: 5px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #32505e;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.next:hover {
+  background-color: #426e82;
+}
+
+.page {
+  font-size: 18px;
+  font-weight: 500;
 }
