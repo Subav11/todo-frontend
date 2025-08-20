@@ -1,76 +1,94 @@
-.dashboard-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #1e556c;
-    padding: 30px 10px;
-    margin: auto;
-    border-radius: 15px;
-    width: 400px;
-    height: 300px;
-    gap: 12px;
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #1e556c;
+  padding: 30px 10px;
+  margin: auto;
+  border-radius: 15px;
+  width: 400px;
+  height: 500px;
+  gap: 12px;
 }
 
-.form-display{
-    display: flex;
-    gap: 10px;
+.form-display {
+  display: flex;
+  gap: 10px;
 }
 
-.btn-input{
-    width: 330px;
-    padding: 8px;
-    background-color: #1e556c;
-    color: white;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #122e3a;
+.btn-input {
+  width: 330px;
+  padding: 8px;
+  background-color: #1e556c;
+  color: white;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #122e3a;
 }
 
-.btn-add{
-    width: 40px;
-    font-size: 25px;
-    border-radius: 50%;
-    background-color: #88a4af;
-    border: none;
-    color: #122e3a;
+.btn-add {
+  width: 40px;
+  font-size: 25px;
+  border-radius: 50%;
+  background-color: #88a4af;
+  border: none;
+  color: #122e3a;
 }
 
-.btn-add:hover{
-    background-color: #bdc4c8;
+.btn-add:hover {
+  background-color: #bdc4c8;
 }
 
-.filter{
-    color: white;
+.filter {
+  color: white;
 }
 
-.select{
-    text-align: center;
-    width: 100px;
-    padding: 3px 0px;
-    border-radius: 4px;
-    color: white;
-    background-color: #153d51;
-    font-size: 15px;
-    font-weight: 500;
+.select {
+  text-align: center;
+  width: 100px;
+  padding: 3px 0px;
+  border-radius: 4px;
+  color: white;
+  background-color: #153d51;
+  font-size: 15px;
+  font-weight: 500;
 }
 
-
-.done{
-    border-radius: 50%;
-    background-color: #04de00;
-    color: #122e3a;
-    border: none;
-    cursor: pointer;
+.done {
+  border-radius: 50%;
+  background-color: #04de00;
+  color: #122e3a;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
 }
 
-.delete{
-    border:none;
-    color: #364e58;
-    background-color: #1b3642;
-    cursor: pointer;
+.delete {
+  border: none;
+  color: #364e58;
+  background-color: #1b3642;
+  cursor: pointer;
+  font-size: 20px;
 }
 
-.delete:hover{
-    color: rgb(203, 189, 189);
+.delete:hover {
+  color: rgb(203, 189, 189);
+}
+
+.todo-item {
+  background-color: #1b3642;
+  margin: 10px auto;
+  border-radius: 10px;
+  color: white;
+  padding: 20px;
+  font-size: 16px;
+}
+
+.todo-item button{
+    margin: 0 20px 
+}
+
+.status{
+    margin-left: 20px;
 }
